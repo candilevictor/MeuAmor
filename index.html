@@ -83,6 +83,21 @@
             margin-top: 40px;
         }
 
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05) rotate(1deg);
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -97,7 +112,6 @@
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-            cursor: pointer;
         }
 
         .gallery img:hover {
@@ -106,19 +120,18 @@
             filter: brightness(1.1);
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 25px;
+        /* YOUTUBE */
+        .youtube-frame {
+            margin-top: 30px;
+            width: 300px;
+            height: 170px;
             border-radius: 15px;
-            font-size: 1.1rem;
-            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.05) rotate(1deg);
-            background: rgba(255, 255, 255, 0.35);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        .youtube-frame:hover {
+            transform: scale(1.05);
         }
 
         footer {
@@ -207,6 +220,27 @@
             <img src="foto (4).jpeg" alt="Nosso momento 4">
         </div>
     </section>
+
+    <section>
+        <h2>Nossa música 🎶</h2>
+        <p>Clique aqui para ouvir a música que representa o que eu sinto por você 💖</p>
+
+        <a href="https://youtu.be/UsR08cY8k0A" target="_blank" style="
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        " onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+            ▶️ Tocar nossa música
+        </a>
+    </section>
+
+
 
     <footer>
         <p>Feito com todo o meu amor ❤️</p>
