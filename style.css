@@ -400,3 +400,95 @@ footer {
         font-size: 1.8rem;
     }
 }
+
+/* LOGIN MODAL */
+.login-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    overflow: hidden;
+}
+
+.login-content {
+    position: relative;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    animation: zoomIn 0.5s ease;
+    overflow: hidden;
+}
+
+.login-content input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.login-content button {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-content button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.error-msg {
+    color: #ffdddd;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* animação zoomIn */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* PARTICULAS DE CORAÇÕES NO MODAL */
+.heart-modal {
+    position: absolute;
+    font-size: 18px;
+    pointer-events: none;
+    animation: floatUp 4s linear forwards;
+    user-select: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-200px) scale(1.3);
+        opacity: 0;
+    }
+}
