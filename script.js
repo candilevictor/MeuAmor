@@ -58,3 +58,50 @@ style.innerHTML = `
 }
 `;
 document.head.appendChild(style);
+
+// TELA DE CARREGAMENTO
+const loadingScreen = document.getElementById("loadingScreen");
+
+// Esconde a tela de carregamento quando o site termina de carregar
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        loadingScreen.classList.add("hidden");
+    }, 1000); // 1 segundo de delay para mostrar o efeito
+});
+
+const menuItems = document.querySelectorAll('.desktop-menu .menu-item');
+const sections = document.querySelectorAll('header, section');
+
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const targetId = item.dataset.target;
+        const target = document.getElementById(targetId);
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+/* ATIVA MENU CONFORME SCROLL */
+window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    menuItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.target === current) {
+            item.classList.add('active');
+        }
+    });
+});
+

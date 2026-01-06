@@ -11,125 +11,183 @@
 </head>
 
 <body>
-    <!-- LOGIN MODAL -->
-    <div class="login-modal" id="loginModal">
-        <div class="login-content">
-            <h2>Bem-vinda 💖</h2>
-            <p>Digite seu nome e senha para acessar nosso site secreto:</p>
-            <input type="text" id="loginName" placeholder="Seu nome...">
-            <input type="password" id="loginPass" placeholder="Senha...">
-            <button id="loginBtn">Entrar 💌</button>
-            <p id="loginError" class="error-msg"></p>
-        </div>
-    </div>
-    <header>
-        <h2 class="dedicatoria">Para Giovanna de Vasconcelos Borges 💖</h2>
-        <h1>Eu te amo, meu amor ❤️</h1>
-        <p>
-            Mesmo quando a vida tenta nos colocar à prova, o meu amor por você só cresce.
-            Esse site é uma pequena forma de mostrar o quanto você é especial pra mim.
-        </p>
-    </header>
 
-    <section>
-        <h2>Uma mensagem pra você 💌</h2>
-        <p>
-            Mesmo nos dias difíceis, você é meu refúgio.
-            Meu amor por você só cresce, mesmo à distância.
-        </p>
-        <div class="btn" onclick="openModal()">📖 Abrir carta surpresa</div>
-    </section>
+    <!-- MENU SUPERIOR DIREITO (DESKTOP) -->
+    <nav class="desktop-menu">
+        <button class="menu-item active" data-target="home">
+            <span class="icon">🏠</span>
+            <span class="label">Início</span>
+        </button>
 
-    <section>
-        <h2>Alguns motivos pelos quais eu te amo</h2>
-        <div class="reasons">
-            <div class="card">💖 Seu jeito único de ser</div>
-            <div class="card">😊 Seu sorriso que ilumina meus dias</div>
-            <div class="card">🤍 Seu carinho e cuidado comigo</div>
-            <div class="card">✨ A paz que você traz pro meu coração</div>
-            <div class="card">💫 Os sonhos que quero viver ao seu lado</div>
-            <div class="card">🌹 O amor sincero que sentimos um pelo outro</div>
-        </div>
-    </section>
+        <button class="menu-item" data-target="message">
+            <span class="icon">💌</span>
+            <span class="label">Mensagem</span>
+        </button>
 
-    <section>
-        <h2>Promessa</h2>
-        <p>
-            Prometo estar ao seu lado, te apoiar, te respeitar e te amar todos os dias.
-            Hoje, amanhã e sempre. Você é e sempre será o meu amor.
-        </p>
-    </section>
+        <button class="menu-item" data-target="reasons">
+            <span class="icon">✨</span>
+            <span class="label">Motivos</span>
+        </button>
 
-    <section>
-        <h2>Com todo o meu amor</h2>
-        <p>
-            Tenho muito orgulho de você e sou grato por cada momento que compartilhamos.
-            Mal posso esperar para criar mais memórias incríveis juntos.
-        </p>
-    </section>
+        <button class="menu-item" data-target="promise">
+            <span class="icon">🤍</span>
+            <span class="label">Promessa</span>
+        </button>
 
-    <section>
-        <h2>Nossos Momentos 📸</h2>
-        <p>Algumas lembranças que guardo com muito carinho no coração.</p>
-        <div class="gallery">
-            <img src="foto (1).jpeg" alt="Nosso momento 1">
-            <img src="foto (2).jpeg" alt="Nosso momento 2">
-            <img src="foto (3).jpeg" alt="Nosso momento 3">
-            <img src="foto (4).jpeg" alt="Nosso momento 4">
-        </div>
-    </section>
+        <button class="menu-item" data-target="love">
+            <span class="icon">💖</span>
+            <span class="label">Amor</span>
+        </button>
 
-    <section>
-        <h2>Nossa música 🎶</h2>
-        <p>Clique aqui para ouvir a música que representa o que eu sinto por você 💖</p>
+        <button class="menu-item" data-target="gallery">
+            <span class="icon">📸</span>
+            <span class="label">Momentos</span>
+        </button>
 
-        <a href="https://youtu.be/UsR08cY8k0A" target="_blank" class="btn">
-            ▶️ Tocar nossa música
-        </a>
-    </section>
+        <button class="menu-item" data-target="music">
+            <span class="icon">🎵</span>
+            <span class="label">Música</span>
+        </button>
 
-    <section>
-        <h2>Nosso chat 💬</h2>
-        <p>Mesmo longe, sempre conectados 💖</p>
+        <button class="menu-item" data-target="chat">
+            <span class="icon">💬</span>
+            <span class="label">Chat</span>
+        </button>
+    </nav>
 
-        <div class="chat-box">
-            <div class="chat-messages" id="chat"></div>
-
-            <div class="chat-input">
-                <input id="msgInput" placeholder="Escreva com amor... 💕" autocomplete="off" />
-                <button id="sendBtn">Enviar 💌</button>
-                <button id="refreshBtn">🔄</button>
-                <button id="clearBtn">🗑</button>
+    <body>
+        <!-- TELA DE CARREGAMENTO -->
+        <div id="loadingScreen">
+            <div class="cssload-main">
+                <div class="cssload-heart">
+                    <span class="cssload-heartL"></span>
+                    <span class="cssload-heartR"></span>
+                    <span class="cssload-square"></span>
+                </div>
+                <div class="cssload-shadow"></div>
             </div>
         </div>
-    </section>
 
-
-
-    <footer>
-        <p>Feito com todo o meu amor ❤️</p>
-    </footer>
-
-    <!-- MODAL -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <h2>Minha carta pra você 💖</h2>
-            <p>
-                Eu te escolheria em todas as vidas.
-                Você é meu amor, meu lar e meu futuro.
-            </p>
-            <p>
-                Eu amo cada detalhe seu, cada sorriso, cada conversa, cada momento.
-                Mesmo quando não estamos juntos fisicamente, meu coração sempre está com você.
-            </p>
-            <div class="btn" onclick="closeModal()">Fechar 💕</div>
+        <!-- LOGIN MODAL -->
+        <div class="login-modal" id="loginModal">
+            <div class="login-content">
+                <h2>Bem-vinda 💖</h2>
+                <p>Digite seu nome e senha para acessar nosso site secreto:</p>
+                <input type="text" id="loginName" placeholder="Seu nome...">
+                <input type="password" id="loginPass" placeholder="Senha...">
+                <button id="loginBtn">Entrar 💌</button>
+                <p id="loginError" class="error-msg"></p>
+            </div>
         </div>
-    </div>
 
-    <!-- JS -->
-    <script src="script.js"></script>
-    <script src="chat.js"></script>
+        <header id="home">
+            <h2 class="dedicatoria">Para Giovanna de Vasconcelos Borges 💖</h2>
+            <h1>Eu te amo, meu amor ❤️</h1>
+            <p>
+                Mesmo quando a vida tenta nos colocar à prova, o meu amor por você só cresce.
+                Esse site é uma pequena forma de mostrar o quanto você é especial pra mim.
+            </p>
+        </header>
 
-</body>
+        <section id="message">
+            <h2>Uma mensagem pra você 💌</h2>
+            <p>
+                Mesmo nos dias difíceis, você é meu refúgio.
+                Meu amor por você só cresce, mesmo à distância.
+            </p>
+            <div class="btn" onclick="openModal()">📖 Abrir carta surpresa</div>
+        </section>
+
+        <section id="reasons">
+            <h2>Alguns motivos pelos quais eu te amo</h2>
+            <div class="reasons">
+                <div class="card">💖 Seu jeito único de ser</div>
+                <div class="card">😊 Seu sorriso que ilumina meus dias</div>
+                <div class="card">🤍 Seu carinho e cuidado comigo</div>
+                <div class="card">✨ A paz que você traz pro meu coração</div>
+                <div class="card">💫 Os sonhos que quero viver ao seu lado</div>
+                <div class="card">🌹 O amor sincero que sentimos um pelo outro</div>
+            </div>
+        </section>
+
+        <section id="promise">
+            <h2>Promessa</h2>
+            <p>
+                Prometo estar ao seu lado, te apoiar, te respeitar e te amar todos os dias.
+                Hoje, amanhã e sempre. Você é e sempre será o meu amor.
+            </p>
+        </section>
+
+        <section id="love">
+            <h2>Com todo o meu amor</h2>
+            <p>
+                Tenho muito orgulho de você e sou grato por cada momento que compartilhamos.
+                Mal posso esperar para criar mais memórias incríveis juntos.
+            </p>
+        </section>
+
+        <section id="gallery">
+            <h2>Nossos Momentos 📸</h2>
+            <p>Algumas lembranças que guardo com muito carinho no coração.</p>
+            <div class="gallery">
+                <img src="foto (1).jpeg" alt="Nosso momento 1">
+                <img src="foto (2).jpeg" alt="Nosso momento 2">
+                <img src="foto (3).jpeg" alt="Nosso momento 3">
+                <img src="foto (4).jpeg" alt="Nosso momento 4">
+            </div>
+        </section>
+
+        <section id="music">
+            <h2>Nossa música 🎶</h2>
+            <p>Clique aqui para ouvir a música que representa o que eu sinto por você 💖</p>
+
+            <a href="https://youtu.be/UsR08cY8k0A" target="_blank" class="btn">
+                ▶️ Tocar nossa música
+            </a>
+        </section>
+
+        <section id="chat">
+            <h2>Nosso chat 💬</h2>
+            <p>Mesmo longe, sempre conectados 💖</p>
+
+            <div class="chat-box">
+                <div class="chat-messages" id="chat"></div>
+
+                <div class="chat-input">
+                    <input id="msgInput" placeholder="Escreva com amor... 💕" autocomplete="off" />
+                    <button id="sendBtn">Enviar 💌</button>
+                    <button id="refreshBtn">🔄</button>
+                    <button id="clearBtn">🗑</button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer>
+            <p>Feito com todo o meu amor ❤️</p>
+        </footer>
+
+        <!-- MODAL -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <h2>Minha carta pra você 💖</h2>
+                <p>
+                    Eu te escolheria em todas as vidas.
+                    Você é meu amor, meu lar e meu futuro.
+                </p>
+                <p>
+                    Eu amo cada detalhe seu, cada sorriso, cada conversa, cada momento.
+                    Mesmo quando não estamos juntos fisicamente, meu coração sempre está com você.
+                </p>
+                <div class="btn" onclick="closeModal()">Fechar 💕</div>
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="script.js"></script>
+        <script src="chat.js"></script>
+
+    </body>
 
 </html>
