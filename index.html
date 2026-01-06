@@ -159,6 +159,100 @@
                 opacity: 0;
             }
         }
+
+        /* BOTÕES */
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 35px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #fff;
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 500px;
+            animation: zoom 0.5s ease;
+        }
+
+        /* CORAÇÕES */
+        .heart {
+            position: fixed;
+            top: -10px;
+            font-size: 20px;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+
+        footer {
+            padding: 40px;
+            opacity: 0.9;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0.7);
+                opacity: 0
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
     </style>
 </head>
 
@@ -172,6 +266,15 @@
             Esse site é uma pequena forma de mostrar o quanto você é especial pra mim.
         </p>
     </header>
+
+    <section>
+        <h2>Uma mensagem pra você 💌</h2>
+        <p>
+            Mesmo nos dias difíceis, você é meu refúgio.
+            Meu amor por você só cresce, mesmo à distância.
+        </p>
+        <div class="btn" onclick="openModal()">📖 Abrir carta surpresa</div>
+    </section>
 
     <section>
         <h2>Uma mensagem pra você</h2>
@@ -246,7 +349,25 @@
         <p>Feito com todo o meu amor ❤️</p>
     </footer>
 
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Minha carta pra você 💖</h2>
+            <p>
+                Eu te escolheria em todas as vidas.
+                Você é meu amor, meu lar e meu futuro.
+            </p>
+            <div class="btn" onclick="closeModal()">Fechar 💕</div>
+        </div>
+    </div>
     <script>
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
@@ -261,6 +382,8 @@
         }
 
         setInterval(createHeart, 300);
+
+
     </script>
 
 </body>
