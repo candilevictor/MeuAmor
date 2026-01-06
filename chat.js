@@ -6,7 +6,6 @@ const clearBtn = document.getElementById("clearBtn");
 const user = localStorage.getItem("user") || prompt("Seu nome 💖");
 localStorage.setItem("user", user);
 
-// Carregar mensagens
 async function loadMessages() {
     const res = await fetch("/api/chat");
     const data = await res.json();
@@ -23,7 +22,6 @@ async function loadMessages() {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Enviar mensagem
 sendBtn.addEventListener("click", async () => {
     const text = input.value.trim();
     if (!text) return;
@@ -47,7 +45,6 @@ sendBtn.addEventListener("click", async () => {
     loadMessages();
 });
 
-// Limpar chat
 clearBtn.addEventListener("click", async () => {
     if (!confirm("Tem certeza que deseja apagar o chat? 💔")) return;
 
@@ -60,6 +57,5 @@ clearBtn.addEventListener("click", async () => {
     loadMessages();
 });
 
-// Atualização automática
 setInterval(loadMessages, 3000);
 loadMessages();
