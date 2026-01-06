@@ -247,6 +247,7 @@ footer {
 }
 
 /* CHAT */
+/* CHAT */
 .chat-box {
     max-width: 420px;
     margin: auto;
@@ -263,15 +264,32 @@ footer {
     text-align: left;
 }
 
+/* MENSAGEM BASE */
 .message {
-    background: rgba(255, 255, 255, 0.35);
     padding: 10px 15px;
     border-radius: 15px;
     margin-bottom: 10px;
     font-size: 0.95rem;
     animation: fadeIn 0.3s ease;
+    max-width: 80%;
+    word-wrap: break-word;
 }
 
+/* SUA MENSAGEM */
+.message.me {
+    background: rgba(255, 255, 255, 0.45);
+    margin-left: auto;
+    text-align: right;
+}
+
+/* MENSAGEM DELA */
+.message.other {
+    background: rgba(255, 255, 255, 0.3);
+    margin-right: auto;
+    text-align: left;
+}
+
+/* INPUT */
 .chat-input {
     display: flex;
     gap: 10px;
@@ -285,8 +303,9 @@ footer {
     outline: none;
 }
 
+/* BOTÕES */
 .chat-input button {
-    padding: 12px 20px;
+    padding: 12px 18px;
     border-radius: 20px;
     border: none;
     cursor: pointer;

@@ -1,41 +1,65 @@
-export default async function handler(req, res) {
-    const GIST_ID = "8cccfb461986b3e5c3f40c15103e6fbf";
-    const TOKEN = process.env.GITHUB_TOKEN;
+const chatBox = document.getElementById("chat");
+const input = document.getElementById("msgInput");
+const sendBtn = document.getElementById("sendBtn");
+const clearBtn = document.getElementById("clearBtn");
 
-    if (!TOKEN) {
-        return res.status(500).json({ error: "Token não configurado" });
-    }
+const user = localStorage.getItem("user") || prompt("Seu nome 💖");
+localStorage.setItem("user", user);
 
-    // LER mensagens
-    if (req.method === "GET") {
-        const response = await fetch(`https://api.github.com/gists/${GIST_ID}`);
-        const data = await response.json();
+// Carregar mensagens
+async function loadMessages() {
+    const res = await fetch("/api/chat");
+    const data = await res.json();
 
-        const content = data.files["chat.json"].content;
-        return res.status(200).json(JSON.parse(content));
-    }
+    chatBox.innerHTML = "";
 
-    // ESCREVER mensagens
-    if (req.method === "POST") {
-        const body = req.body;
+    data.messages.forEach(msg => {
+        const div = document.createElement("div");
+        div.className = `message ${msg.user === user ? "me" : "other"}`;
+        div.innerHTML = `<strong>${msg.user}:</strong> ${msg.text}`;
+        chatBox.appendChild(div);
+    });
 
-        await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-            method: "PATCH",
-            headers: {
-                "Authorization": `token ${TOKEN}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                files: {
-                    "chat.json": {
-                        content: JSON.stringify(body, null, 2)
-                    }
-                }
-            })
-        });
-
-        return res.status(200).json({ ok: true });
-    }
-
-    res.status(405).end();
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+// Enviar mensagem
+sendBtn.addEventListener("click", async () => {
+    const text = input.value.trim();
+    if (!text) return;
+
+    const res = await fetch("/api/chat");
+    const data = await res.json();
+
+    data.messages.push({
+        user,
+        text,
+        time: Date.now()
+    });
+
+    await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    input.value = "";
+    loadMessages();
+});
+
+// Limpar chat
+clearBtn.addEventListener("click", async () => {
+    if (!confirm("Tem certeza que deseja apagar o chat? 💔")) return;
+
+    await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: [] })
+    });
+
+    loadMessages();
+});
+
+// Atualização automática
+setInterval(loadMessages, 3000);
+loadMessages();
