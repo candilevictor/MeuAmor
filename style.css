@@ -5,6 +5,7 @@ body {
     color: #fff;
     text-align: center;
     overflow-x: hidden;
+    padding-top: 70px;
 }
 
 header {
@@ -398,5 +399,138 @@ footer {
 
     section h2 {
         font-size: 1.8rem;
+    }
+}
+
+/* ================= MENU ================= */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* logo à esquerda, links à direita */
+    align-items: center;
+    padding: 15px 50px;
+    /* espaço do lado esquerdo e direito */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    z-index: 2000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.menu:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.menu-logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Links */
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding-right: 100px;
+}
+
+.menu-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.menu-links li a:hover {
+    text-shadow: 0 0 15px #fff, 0 0 20px #ff7eb3;
+    transform: scale(1.1);
+}
+
+/* Botão hambúrguer */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+    .menu {
+        padding: 15px 25px;
+    }
+
+    .menu-links {
+        position: absolute;
+        top: 60px;
+        right: 25px;
+        /* distância da borda direita */
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .menu-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 25px;
+        /* mesma distância da borda direita */
+        top: 18px;
+    }
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= CORAÇÕES ================= */
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
     }
 }
