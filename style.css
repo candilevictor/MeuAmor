@@ -319,3 +319,35 @@ footer {
     transform: scale(1.1);
     background: rgba(255, 255, 255, 0.6);
 }
+
+#refreshBtn {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+#refreshBtn:hover {
+    transform: rotate(180deg) scale(1.1);
+}
+
+/* BOTÃO RECARREGAR CHAT */
+#refreshBtn {
+    background: rgba(255, 255, 255, 0.35);
+    transition: transform 0.4s ease, opacity 0.3s;
+}
+
+/* girando enquanto carrega */
+#refreshBtn.loading {
+    animation: spin 1s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* animação de giro */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

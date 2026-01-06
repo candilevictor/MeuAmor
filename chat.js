@@ -2,6 +2,8 @@ const chatBox = document.getElementById("chat");
 const input = document.getElementById("msgInput");
 const sendBtn = document.getElementById("sendBtn");
 const clearBtn = document.getElementById("clearBtn");
+const refreshBtn = document.getElementById("refreshBtn");
+
 
 const user = localStorage.getItem("user") || prompt("Seu nome 💖");
 localStorage.setItem("user", user);
@@ -57,5 +59,34 @@ clearBtn.addEventListener("click", async () => {
     loadMessages();
 });
 
-setInterval(loadMessages, 3000);
+async function refreshChat() {
+    refreshBtn.classList.add("loading");
+    refreshBtn.innerText = "⏳";
+
+    try {
+        await loadMessages();
+    } catch (err) {
+        alert("Erro ao atualizar o chat 😢");
+        console.error(err);
+    }
+
+    setTimeout(() => {
+        refreshBtn.classList.remove("loading");
+        refreshBtn.innerText = "🔄";
+    }, 500);
+}
+
+refreshBtn.addEventListener("click", () => {
+    input.value = "";
+    refreshChat();
+});
+
+
+
+setInterval(() => {
+    if (!document.hidden) {
+        loadMessages();
+    }
+}, 3000);
+
 loadMessages();
