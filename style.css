@@ -249,7 +249,7 @@ footer {
 /* CHAT */
 /* CHAT */
 .chat-box {
-    max-width: 420px;
+    max-width: 650px;
     margin: auto;
     background: rgba(255, 255, 255, 0.2);
     padding: 20px;
@@ -258,7 +258,7 @@ footer {
 }
 
 .chat-messages {
-    height: 280px;
+    height: 420px;
     overflow-y: auto;
     margin-bottom: 15px;
     text-align: left;
@@ -349,5 +349,54 @@ footer {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 600px) {
+
+    section {
+        margin: 15px;
+        padding: 35px 15px;
+    }
+
+    .chat-box {
+        max-width: 100%;
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .chat-messages {
+        height: 55vh;
+        /* ocupa boa parte da tela */
+    }
+
+    .chat-input {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .chat-input input {
+        font-size: 1rem;
+        padding: 14px;
+    }
+
+    .chat-input button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .message {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
     }
 }
