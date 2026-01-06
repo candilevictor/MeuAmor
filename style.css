@@ -191,6 +191,10 @@ footer {
     animation: zoom 0.5s ease;
 }
 
+.modal.active {
+    display: flex;
+}
+
 /* CORAÇÕES */
 .heart {
     position: fixed;
